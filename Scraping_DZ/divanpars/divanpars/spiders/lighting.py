@@ -2,7 +2,7 @@ import scrapy
 
 class LightingSpider(scrapy.Spider):
     name = "lighting"
-    allowed_domains = ["https://divan.ru"]
+    allowed_domains = ["https://www.divan.ru"]
     start_urls = ["https://www.divan.ru/category/svet"]
 
     def parse(self, response):
@@ -13,5 +13,4 @@ class LightingSpider(scrapy.Spider):
                 'price': lighting.css('div.pY3d2 span::text').get(),
                 'url': response.urljoin(lighting.css('a').attrib['href'])
             }
-
 
